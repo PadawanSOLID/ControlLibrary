@@ -93,10 +93,12 @@
                     <ToggleButton
                         Width="80"
                         Height="80"
-                      
-                      
-                        Style="{StaticResource CheckRotationCircleToggleButton}" >
-                        <Path Margin="5" Stroke="Black" Fill="Black" Stretch="Uniform">
+                        Style="{StaticResource CheckRotationCircleToggleButton}">
+                        <Path
+                            Margin="5"
+                            Fill="Black"
+                            Stretch="Uniform"
+                            Stroke="Black">
                             <Path.Data>
                                 M12,11A1,1 0 0,0 11,12A1,1 0 0,0 12,13A1,1 0 0,0 13,12A1,1 0 0,0 12,11M12.5,2C17,2 17.11,5.57 14.75,6.75C13.76,7.24 13.32,8.29 13.13,9.22C13.61,9.42 14.03,9.73 14.35,10.13C18.05,8.13 22.03,8.92 22.03,12.5C22.03,17 18.46,17.1 17.28,14.73C16.78,13.74 15.72,13.3 14.79,13.11C14.59,13.59 14.28,14 13.88,14.34C15.87,18.03 15.08,22 11.5,22C7,22 6.91,18.42 9.27,17.24C10.25,16.75 10.69,15.71 10.89,14.79C10.4,14.59 9.97,14.27 9.65,13.87C5.96,15.85 2,15.07 2,11.5C2,7 5.56,6.89 6.74,9.26C7.24,10.25 8.29,10.68 9.22,10.87C9.41,10.39 9.73,9.97 10.14,9.65C8.15,5.96 8.94,2 12.5,2Z
                             </Path.Data>
@@ -105,5 +107,125 @@
                 </UniformGrid>
             </StackPanel>
         </TabItem>
+        <TabItem Header="TabControl">
+            <StackPanel>
+                <Label
+                    Margin="20"
+                    Content="TabControl"
+                    FontSize="20" />
+                <TabControl>
+                    <TabControl.Style>
+                        <Style TargetType="TabControl" />
+                    </TabControl.Style>
+                    <TabControl.ItemContainerStyle>
+                        <Style TargetType="TabItem">
+                            <Setter Property="ap:CornerRadiusAP.CornerRadius" Value="3,3,0,0" />
+                            <Setter Property="Background" Value="WhiteSmoke" />
+                            <Setter Property="BorderThickness" Value="1,1,1,0" />
+                            <Setter Property="BorderBrush" Value="#ff999999" />
+                            <Setter Property="Margin" Value="0,2,5,2" />
+                            <Setter Property="Padding" Value="1" />
+                            <Setter Property="HorizontalAlignment" Value="Stretch" />
+                            <Setter Property="VerticalAlignment" Value="Stretch" />
+                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
+                            <Setter Property="Focusable" Value="True" />
+                            <Setter Property="OverridesDefaultStyle" Value="True" />
+                            <Setter Property="SnapsToDevicePixels" Value="True" />
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TabItem">
+                                        <Border
+                                            Margin="{TemplateBinding Margin}"
+                                            Padding="{TemplateBinding Padding}"
+                                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                            VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            CornerRadius="{TemplateBinding ap:CornerRadiusAP.CornerRadius}"
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="auto" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <ContentPresenter Content="{TemplateBinding ap:IconAP.Icon}" />
+                                                <ContentPresenter
+                                                    Grid.Column="1"
+                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                    ContentSource="Header" />
+                                                <Button
+                                                    Grid.Column="2"
+                                                    Margin="3"
+                                                    Padding="1"
+                                                    Background="Transparent"
+                                                    BorderThickness="0">
+                                                    <Path
+                                                        Width="8"
+                                                        Height="8"
+                                                        Data="M335.25 300L442.75 407.25A25 25 0 1 1 407.25 442.75L300 335.25L192.75 442.75A25 25 0 0 1 157.25 407.25L264.75 300L157.25 192.75A25 25 0 0 1 157.25 157.25A25 25 0 0 1 192.75 157.25L300 264.75L407.25 157.25A25 25 0 0 1 442.75 157.25A25 25 0 0 1 442.75 192.75z"
+                                                        Fill="Red"
+                                                        Stretch="Uniform" />
+                                                </Button>
+                                            </Grid>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="White" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TabControl.ItemContainerStyle>
+                    <TabItem Header="Tab 1">
+                        <ap:IconAP.Icon>
+                            <Path
+                                Width="15"
+                                Height="15"
+                                Margin="3"
+                                Data="M253.96875 245.49375A247.5 247.5 0 0 1 192.9 264.45A0.9375 0.9375 0 0 1 191.925 263.98125C189.28125 259.29375 186.35625 253.1625 184.3125 248.3625A228.75 228.75 0 0 1 115.725 248.3625A150 150 0 0 1 108 263.98125A0.9375 0.9375 0 0 1 107.025 264.45C85.93125 260.8125 65.4 254.4375 45.95625 245.49375A0.75 0.75 0 0 1 45.5625 245.15625C6.675 187.05 -3.99375 130.36875 1.2375 74.4Q1.29375 73.9875 1.63125 73.70625A249.3750000000001 249.3750000000001 0 0 1 76.5375 35.83125A0.9375 0.9375 0 0 1 77.5875 36.1875Q86.26875 48 92.925 61.10625A0.9375 0.9375 0 0 1 92.7375 62.2125L92.4 62.41875A168.75 168.75 0 0 0 69 73.575A0.9375 0.9375 0 0 0 68.625 74.8125L68.90625 75.16875Q71.2875 76.95 73.55625 78.825A0.9375 0.9375 0 0 0 74.5125 78.95625C123.61875 56.53125 176.775 56.53125 225.28125 78.95625A0.9375 0.9375 0 0 0 226.2750000000001 78.825Q228.5437500000001 76.95 230.925 75.16875A0.9375 0.9375 0 0 0 230.85 73.575A150 150 0 0 0 207.43125 62.4375A0.9375 0.9375 0 0 1 206.86875 61.875A0.9375 0.9375 0 0 1 206.925 61.10625C211.4250000000001 52.3875 216.5812500000001 44.0625 222.24375 36.1875A0.9375 0.9375 0 0 1 223.29375 35.83125A247.5 247.5 0 0 1 298.3125 73.70625A0.9375 0.9375 0 0 1 298.70625 74.4C304.96875 139.10625 288.225 195.31875 254.3437500000001 245.1375A0.5625 0.5625 0 0 1 253.9687500000001 245.49375M100.25625 108.4875C85.4625 108.4875 73.29375 122.0625 73.29375 138.7125S85.2375 168.95625 100.25625 168.95625C115.3875 168.95625 127.44375 155.26875 127.21875 138.7125C127.21875 122.0625 115.275 108.4875 100.25625 108.4875M199.93125 108.4875C185.15625 108.4875 172.96875 122.0625 172.96875 138.7125S184.9125 168.95625 199.93125 168.95625C215.0625 168.95625 227.1375 155.26875 226.89375 138.7125C226.89375 122.0625 215.0625 108.4875 199.93125 108.4875"
+                                Stretch="Uniform"
+                                Stroke="Black"
+                                StrokeThickness="1" />
+                        </ap:IconAP.Icon>
+                        <TextBlock>This is Tab 1</TextBlock>
+                    </TabItem>
+                    <TabItem Header="Tab 2">
+                        <ap:IconAP.Icon>
+                            <Path
+                                Width="15"
+                                Height="15"
+                                Margin="3"
+                                Data="M253.96875 245.49375A247.5 247.5 0 0 1 192.9 264.45A0.9375 0.9375 0 0 1 191.925 263.98125C189.28125 259.29375 186.35625 253.1625 184.3125 248.3625A228.75 228.75 0 0 1 115.725 248.3625A150 150 0 0 1 108 263.98125A0.9375 0.9375 0 0 1 107.025 264.45C85.93125 260.8125 65.4 254.4375 45.95625 245.49375A0.75 0.75 0 0 1 45.5625 245.15625C6.675 187.05 -3.99375 130.36875 1.2375 74.4Q1.29375 73.9875 1.63125 73.70625A249.3750000000001 249.3750000000001 0 0 1 76.5375 35.83125A0.9375 0.9375 0 0 1 77.5875 36.1875Q86.26875 48 92.925 61.10625A0.9375 0.9375 0 0 1 92.7375 62.2125L92.4 62.41875A168.75 168.75 0 0 0 69 73.575A0.9375 0.9375 0 0 0 68.625 74.8125L68.90625 75.16875Q71.2875 76.95 73.55625 78.825A0.9375 0.9375 0 0 0 74.5125 78.95625C123.61875 56.53125 176.775 56.53125 225.28125 78.95625A0.9375 0.9375 0 0 0 226.2750000000001 78.825Q228.5437500000001 76.95 230.925 75.16875A0.9375 0.9375 0 0 0 230.85 73.575A150 150 0 0 0 207.43125 62.4375A0.9375 0.9375 0 0 1 206.86875 61.875A0.9375 0.9375 0 0 1 206.925 61.10625C211.4250000000001 52.3875 216.5812500000001 44.0625 222.24375 36.1875A0.9375 0.9375 0 0 1 223.29375 35.83125A247.5 247.5 0 0 1 298.3125 73.70625A0.9375 0.9375 0 0 1 298.70625 74.4C304.96875 139.10625 288.225 195.31875 254.3437500000001 245.1375A0.5625 0.5625 0 0 1 253.9687500000001 245.49375M100.25625 108.4875C85.4625 108.4875 73.29375 122.0625 73.29375 138.7125S85.2375 168.95625 100.25625 168.95625C115.3875 168.95625 127.44375 155.26875 127.21875 138.7125C127.21875 122.0625 115.275 108.4875 100.25625 108.4875M199.93125 108.4875C185.15625 108.4875 172.96875 122.0625 172.96875 138.7125S184.9125 168.95625 199.93125 168.95625C215.0625 168.95625 227.1375 155.26875 226.89375 138.7125C226.89375 122.0625 215.0625 108.4875 199.93125 108.4875"
+                                Stretch="Uniform"
+                                Stroke="Black"
+                                StrokeThickness="1" />
+                        </ap:IconAP.Icon>
+                        <TextBlock>This is Tab 2</TextBlock>
+                    </TabItem>
+
+                    <TabItem Header="Tab 3">
+                        <ap:IconAP.Icon>
+                            <Path
+                                Width="15"
+                                Height="15"
+                                Margin="3"
+                                Data="M253.96875 245.49375A247.5 247.5 0 0 1 192.9 264.45A0.9375 0.9375 0 0 1 191.925 263.98125C189.28125 259.29375 186.35625 253.1625 184.3125 248.3625A228.75 228.75 0 0 1 115.725 248.3625A150 150 0 0 1 108 263.98125A0.9375 0.9375 0 0 1 107.025 264.45C85.93125 260.8125 65.4 254.4375 45.95625 245.49375A0.75 0.75 0 0 1 45.5625 245.15625C6.675 187.05 -3.99375 130.36875 1.2375 74.4Q1.29375 73.9875 1.63125 73.70625A249.3750000000001 249.3750000000001 0 0 1 76.5375 35.83125A0.9375 0.9375 0 0 1 77.5875 36.1875Q86.26875 48 92.925 61.10625A0.9375 0.9375 0 0 1 92.7375 62.2125L92.4 62.41875A168.75 168.75 0 0 0 69 73.575A0.9375 0.9375 0 0 0 68.625 74.8125L68.90625 75.16875Q71.2875 76.95 73.55625 78.825A0.9375 0.9375 0 0 0 74.5125 78.95625C123.61875 56.53125 176.775 56.53125 225.28125 78.95625A0.9375 0.9375 0 0 0 226.2750000000001 78.825Q228.5437500000001 76.95 230.925 75.16875A0.9375 0.9375 0 0 0 230.85 73.575A150 150 0 0 0 207.43125 62.4375A0.9375 0.9375 0 0 1 206.86875 61.875A0.9375 0.9375 0 0 1 206.925 61.10625C211.4250000000001 52.3875 216.5812500000001 44.0625 222.24375 36.1875A0.9375 0.9375 0 0 1 223.29375 35.83125A247.5 247.5 0 0 1 298.3125 73.70625A0.9375 0.9375 0 0 1 298.70625 74.4C304.96875 139.10625 288.225 195.31875 254.3437500000001 245.1375A0.5625 0.5625 0 0 1 253.9687500000001 245.49375M100.25625 108.4875C85.4625 108.4875 73.29375 122.0625 73.29375 138.7125S85.2375 168.95625 100.25625 168.95625C115.3875 168.95625 127.44375 155.26875 127.21875 138.7125C127.21875 122.0625 115.275 108.4875 100.25625 108.4875M199.93125 108.4875C185.15625 108.4875 172.96875 122.0625 172.96875 138.7125S184.9125 168.95625 199.93125 168.95625C215.0625 168.95625 227.1375 155.26875 226.89375 138.7125C226.89375 122.0625 215.0625 108.4875 199.93125 108.4875"
+                                Stretch="Uniform"
+                                Stroke="Black"
+                                StrokeThickness="1" />
+                        </ap:IconAP.Icon>
+                        <TextBlock>This is Tab 3</TextBlock>
+                    </TabItem>
+                </TabControl>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="DataGrid" />
     </TabControl>
 </Window>
